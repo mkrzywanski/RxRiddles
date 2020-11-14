@@ -9,6 +9,6 @@ object Riddle3 {
    * Use case: You want to filter certain items out.
    */
   fun solve(source: Observable<Int>): Observable<Int> {
-    TODO()
+    return source.filter {v ->  v % 2 == 0}
   }
 }
