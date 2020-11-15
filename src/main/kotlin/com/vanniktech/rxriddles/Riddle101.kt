@@ -1,6 +1,8 @@
 package com.vanniktech.rxriddles
 
 import io.reactivex.rxjava3.core.Observable
+import java.util.concurrent.TimeUnit
+import java.util.concurrent.atomic.AtomicInteger
 
 object Riddle101 {
   /**
@@ -10,6 +12,8 @@ object Riddle101 {
    * Use case: You have some countdown functionality and want to display how many seconds are left.
    */
   fun solve(seconds: Long): Observable<Long> {
-    TODO()
+    return Observable.interval(0, 1, TimeUnit.SECONDS)
+            .map { seconds - it }
+            .takeUntil {it == 0L}
   }
 }
