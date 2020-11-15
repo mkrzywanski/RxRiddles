@@ -1,5 +1,6 @@
 package com.vanniktech.rxriddles
 
+import io.reactivex.rxjava3.annotations.NonNull
 import io.reactivex.rxjava3.core.Observable
 
 object Riddle22 {
@@ -8,7 +9,8 @@ object Riddle22 {
    *
    * Use case: Group related data while skipping over some of it.
    */
-  fun solve(source: Observable<Int>): Observable<List<Int>> {
-    TODO()
+  fun solve(source: Observable<Int>): @NonNull Observable<List<Int>>? {
+    return source.buffer(3)
+            .flatMap { Observable.fromIterable(listOf(it.take(2))) }
   }
 }

@@ -8,7 +8,7 @@ import org.junit.Test
 class Riddle22Test {
   @Test fun solve() {
     Riddle22.solve(Observable.range(0, 10))
-        .test()
-        .assertResult(listOf(0, 1), listOf(3, 4), listOf(6, 7), listOf(9))
+            ?.test()
+            ?.assertResult(listOf(0, 1), listOf(3, 4), listOf(6, 7), listOf(9))
   }
 }
